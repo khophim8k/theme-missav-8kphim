@@ -1,0 +1,265 @@
+<?php
+
+namespace Kho8k\MissAV;
+
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class MissAVServiceProvider extends ServiceProvider
+{
+    public function register()
+    {
+        $this->setupDefaultThemeCustomizer();
+    }
+
+    public function boot()
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'themes');
+
+        $this->publishes([
+            __DIR__ . '/../resources/assets' => public_path('themes/missav')
+        ], 'missav-assets');
+    }
+
+    protected function setupDefaultThemeCustomizer()
+    {
+        config(['themes' => array_merge(config('themes', []), [
+            'missav' => [
+                'name' => 'MissAV',
+                'author' => 'kho8k@gmail.com',
+                'package_name' => 'kho8k/theme-missav',
+                'publishes' => ['missav-assets'],
+                'preview_image' => '',
+                'options' => [
+                    [
+                        'name' => 'recommendations_limit',
+                        'label' => 'Recommended movies limit',
+                        'type' => 'number',
+                        'value' => 10,
+                        'wrapperAttributes' => [
+                            'class' => 'form-group col-md-4',
+                        ],
+                        'tab' => 'List'
+                    ],
+                    [
+                        'name' => 'per_page_limit',
+                        'label' => 'Pages limit',
+                        'type' => 'number',
+                        'value' => 20,
+                        'wrapperAttributes' => [
+                            'class' => 'form-group col-md-4',
+                        ],
+                        'tab' => 'List'
+                    ],
+                    [
+                        'name' => 'movie_related_limit',
+                        'label' => 'Movies related limit',
+                        'type' => 'number',
+                        'value' => 10,
+                        'wrapperAttributes' => [
+                            'class' => 'form-group col-md-4',
+                        ],
+                        'tab' => 'List'
+                    ],
+                    [
+                        'name' => 'latest',
+                        'label' => 'Danh sách mới cập nhật',
+                        'type' => 'code',
+                        'hint' => 'display_label|relation|find_by_field|value|limit|show_more_url',
+                        'value' => "Phim sex mới||is_copyright|0|8|/danh-sach/phim-moi\r\nJAV HD|categories|slug|jav-hd|12|/the-loai/jav-hd\r\nPhim sex vụng trộm|categories|slug|vung-trom|8|/the-loai/vung-trom\r\nPhim sex không che|categories|slug|av-khong-che|12|/the-loai/av-khong-che\r\nMỹ-Châu Âu|regions|slug|trung-quoc|8|/quoc-gia/chau-au",
+                        'attributes' => [
+                            'rows' => 5
+                        ],
+                        'tab' => 'List'
+                    ],
+                    [
+                        'name' => 'hotest',
+                        'label' => 'Danh sách hot',
+                        'type' => 'code',
+                        'hint' => 'Label|relation|find_by_field|value|sort_by_field|sort_algo|limit',
+                        'value' => "Top sắp chiếu||status|trailer|publish_year|desc|4\r\nTop phim bộ||type|series|view_total|desc|4\r\nTop phim lẻ||type|single|view_total|desc|4",
+                        'attributes' => [
+                            'rows' => 5
+                        ],
+                        'tab' => 'List'
+                    ],
+                    [
+                        'name' => 'additional_css',
+                        'label' => 'Additional CSS',
+                        'type' => 'code',
+                        'value' => "",
+                        'tab' => 'Custom CSS'
+                    ],
+                    [
+                        'name' => 'body_attributes',
+                        'label' => 'Body attributes',
+                        'type' => 'text',
+                        'value' => "class='bg-[#1a1a1a] font-sans leading-normal tracking-normal'",
+                        'tab' => 'Custom CSS'
+                    ],
+                    [
+                        'name' => 'additional_header_js',
+                        'label' => 'Header JS',
+                        'type' => 'code',
+                        'value' => "",
+                        'tab' => 'Custom JS'
+                    ],
+                    [
+                        'name' => 'additional_body_js',
+                        'label' => 'Body JS',
+                        'type' => 'code',
+                        'value' => "",
+                        'tab' => 'Custom JS'
+                    ],
+                    [
+                        'name' => 'additional_footer_js',
+                        'label' => 'Footer JS',
+                        'type' => 'code',
+                        'value' => "",
+                        'tab' => 'Custom JS'
+                    ],
+                    [
+                        'name' => 'footer',
+                        'label' => 'Footer',
+                        'type' => 'code',
+                        'value' => <<<EOT
+                        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                            <div class="space-y-4 xl:col-span-1">
+                                <a class="text-4xl leading-normal" href="https://phimsexsome.com/">
+                                    <img src="" alt="logo" loading="lazy" class="logo-footer">
+                                </a>
+                                <p class="text-gray-500 text-base">
+                                    Hãy đảm bảo rằng bạn đã đủ 18+ tuổi khi xem Phim sex tại Phimsexsome.com. Chúng tôi sẽ không chịu bất cứ tránh nhiệm nào nếu bạn nhỏ hơn 18 tuổi mà vẫn xem phim người lớn.
+                                    Tất cả nội dung phim đều được dàn dựng từ trước, không có thật, người xem tuyệt đối không bắt chước hành động trong phim, tránh vi phạm pháp luật.
+                                </p>
+                                <div id="inpage" class="text-gray-900"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                                <div class="md:grid md:grid-cols-2 md:gap-8">
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Video</h3>
+                                        <ul class="mt-4 space-y-4">
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">JAV HD</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    AV Không Che
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Vụng trộm
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="md:mt-0 mt-12 ">
+                                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Quốc Gia</h3>
+                                        <ul class="mt-4 space-y-4">
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">Nhật Bản</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Châu Âu
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Trung Quốc
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="md:grid md:grid-cols-2 md:gap-8">
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                                            liên kết
+                                        </h3>
+                                        <ul class="mt-4 space-y-4">
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Liên hệ
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Yêu cầu quảng cáo
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Sitemap
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="md:mt-0 mt-12 ">
+                                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                                            Xem thêm
+                                        </h3>
+                                        <ul class="mt-4 space-y-4">
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary" rel="nofollow" target="_blank">
+                                                    Cam Sex Trực Tiếp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Njav
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                    Supjav
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="https://phimsexsome.com/" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
+                                                    JerkDolls
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="https://phimsexsome.com/" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
+                                                    ThePornDude
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-12 border-t border-gray-700 pt-8">
+                            <p class="flex justify-center items-center text-base text-gray-400 xl:text-center">
+                                <a href="https://phimsexsome.com/">© 2024</a>
+                                <a class="ml-1 align-middle text-lg" href="/"><span style="visibility: visible;" class="font-serif"><span class="text-zinc-50">Phimsex</span><span class="text-primary">Some</span></span>
+                                </a>
+                            </p>
+                        </div>
+                        EOT,
+                        'tab' => 'Custom HTML'
+                    ],
+                    [
+                        'name' => 'ads_header',
+                        'label' => 'Ads header',
+                        'type' => 'code',
+                        'value' => <<<EOT
+                        <img src="" alt="">
+                        EOT,
+                        'tab' => 'Ads'
+                    ],
+                    [
+                        'name' => 'ads_catfish',
+                        'label' => 'Ads catfish',
+                        'type' => 'code',
+                        'value' => <<<EOT
+                        <img src="" alt="">
+                        EOT,
+                        'tab' => 'Ads'
+                    ]
+                ],
+            ]
+        ])]);
+    }
+}
