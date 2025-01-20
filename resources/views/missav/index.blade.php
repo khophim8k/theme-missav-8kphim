@@ -81,6 +81,11 @@
         </div>
     </div>
     
+    <div class="flex flex-row flex-wrap flex-grow mt-2 justify-center content-center">
+        @if (get_theme_option('ads_header'))
+            {!! get_theme_option('ads_header') !!}
+        @endif
+    </div>
     <div class="flex-1 min-w-0 pt-10 pd-6 items-center justify-between"><h2 class="h-text text-white uppercase text-2xl mb-2">đề xuất cho bạn</h2></div>
     @if (count($recommendations))
         <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -89,11 +94,6 @@
             @endforeach
         </div>
     @endif
-    <div class="flex flex-row flex-wrap flex-grow mt-2 justify-center content-center">
-        @if (get_theme_option('ads_header'))
-            {!! get_theme_option('ads_header') !!}
-        @endif
-    </div>
     @foreach ($data as $key_section => $item)
         <div class="mb-5 ">
             <div class="flex-1 min-w-0 pd-4 items-center justify-between lg:pt-6 md:pt-6 sm:pt-6 se:pt-4 gl:pt-4">
