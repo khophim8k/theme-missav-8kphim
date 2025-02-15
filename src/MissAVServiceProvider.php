@@ -107,23 +107,57 @@ class MissAVServiceProvider extends ServiceProvider
                         'name' => 'additional_body_js',
                         'label' => 'Body JS',
                         'type' => 'code',
-                        'value' => "<script>
-                                        document.addEventListener(\"DOMContentLoaded\", function() {
-                                            setTimeout(function() {
-                                                var playerDiv = document.getElementById(\"dooplay_player_response\");
+                        'value' => <<<HTML
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                setTimeout(function() {
+                                    var playerDiv = document.getElementById("player-wrapper");
 
-                                                if (playerDiv) {
-                                                    var imgElement = document.createElement(\"img\");
-                                                    imgElement.src = \"/storage/images/logovl.png\";  // Đường dẫn hình ảnh
-                                                    imgElement.alt = \"logo\";  // Thuộc tính alt của ảnh
-                                                    imgElement.className = \"logoiframe\";  // Thêm class 'logoiframe'
-                                                    
+                                    if (playerDiv) {
+                                        var imgElement = document.createElement("img");
+                                        imgElement.src = "/storage/images/logovl.png";  // Đường dẫn hình ảnh
+                                        imgElement.alt = "logo";  // Thuộc tính alt của ảnh
+                                        imgElement.className = "logoiframe";  // Thêm class 'logoiframe'
+                                        playerDiv.appendChild(imgElement);
+                                    }
+                                }, 500); // Chờ 1 giây sau khi script trước đã thực thi
+                            });
+                        </script>
+                        <script>
+                        var catfishDiv = `<div class="custom-banner-video">
+                                                <div class="banner-ads">
+                                                </div>
+                                            </div>
+                                            <style>
+                                            .custom-banner-video {
+                                                text-align: center;
+                                                margin: 5px;
+                                            }
+                                            </style>
+                                            `;
+                                            var headerDiv = `
+                                            <div class="custom-banner-video">
+                                                <div class="banner-ads">
+                                                </div>
+                                            </div>
+                                            <style>
+                                            .custom-banner-video {
+                                                text-align: center;
+                                                margin: 5px;
+                                            }
+                                            
+                                            </style>`;
 
-                                                    playerDiv.appendChild(imgElement);
-                                                }
-                                            }, 500); // Chờ 1 giây sau khi script trước đã thực thi
-                                        });
-                                    </script>",
+                        var targetBottomElement = document.querySelector(".h-content");
+                        var targetTopElement = document.querySelector(".h-content");
+                        if (targetBottomElement) {
+                            targetBottomElement.insertAdjacentHTML("beforeend", catfishDiv);
+                        }
+                        if (targetTopElement) {
+                            targetTopElement.insertAdjacentHTML("afterbegin", headerDiv);
+                        }
+                        </script>
+                        HTML,
                         'tab' => 'Custom JS'
                     ],
                     [
