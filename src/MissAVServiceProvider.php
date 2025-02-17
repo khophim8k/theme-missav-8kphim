@@ -76,7 +76,7 @@ class MissAVServiceProvider extends ServiceProvider
                         'label' => 'Danh sách hot',
                         'type' => 'code',
                         'hint' => 'Label|relation|find_by_field|value|sort_by_field|sort_algo|limit',
-                        'value' => "Top sắp chiếu||status|trailer|publish_year|desc|4\r\nTop phim bộ||type|series|view_total|desc|4\r\nTop phim lẻ||type|single|view_total|desc|4",
+                        'value' => "",
                         'attributes' => [
                             'rows' => 5
                         ],
@@ -174,11 +174,11 @@ class MissAVServiceProvider extends ServiceProvider
                         'value' => <<<EOT
                         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
                             <div class="space-y-4 xl:col-span-1">
-                                <a class="text-4xl leading-normal" href="https://phimsexsome.com/">
+                                <a class="text-4xl leading-normal" href="#">
                                     <img src="" alt="logo" loading="lazy" class="logo-footer">
                                 </a>
                                 <p class="text-gray-500 text-base">
-                                    Hãy đảm bảo rằng bạn đã đủ 18+ tuổi khi xem Phim sex tại Phimsexsome.com. Chúng tôi sẽ không chịu bất cứ tránh nhiệm nào nếu bạn nhỏ hơn 18 tuổi mà vẫn xem phim người lớn.
+                                    Hãy đảm bảo rằng bạn đã đủ 18+ tuổi khi xem Phim sex tại Tên Website. Chúng tôi sẽ không chịu bất cứ tránh nhiệm nào nếu bạn nhỏ hơn 18 tuổi mà vẫn xem phim người lớn.
                                     Tất cả nội dung phim đều được dàn dựng từ trước, không có thật, người xem tuyệt đối không bắt chước hành động trong phim, tránh vi phạm pháp luật.
                                 </p>
                                 <div id="inpage" class="text-gray-900"></div>
@@ -189,15 +189,15 @@ class MissAVServiceProvider extends ServiceProvider
                                         <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Video</h3>
                                         <ul class="mt-4 space-y-4">
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">JAV HD</a>
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">JAV HD</a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     AV Không Che
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Vụng trộm
                                                 </a>
                                             </li>
@@ -207,15 +207,15 @@ class MissAVServiceProvider extends ServiceProvider
                                         <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Quốc Gia</h3>
                                         <ul class="mt-4 space-y-4">
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">Nhật Bản</a>
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">Nhật Bản</a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Châu Âu
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Trung Quốc
                                                 </a>
                                             </li>
@@ -229,17 +229,17 @@ class MissAVServiceProvider extends ServiceProvider
                                         </h3>
                                         <ul class="mt-4 space-y-4">
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Liên hệ
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Yêu cầu quảng cáo
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Sitemap
                                                 </a>
                                             </li>
@@ -251,27 +251,27 @@ class MissAVServiceProvider extends ServiceProvider
                                         </h3>
                                         <ul class="mt-4 space-y-4">
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary" rel="nofollow" target="_blank">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary" rel="nofollow" target="_blank">
                                                     Cam Sex Trực Tiếp
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Njav
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://phimsexsome.com/" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
                                                     Supjav
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="https://phimsexsome.com/" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
                                                     JerkDolls
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="https://phimsexsome.com/" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="#" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
                                                     ThePornDude
                                                 </a>
                                             </li>
@@ -282,8 +282,8 @@ class MissAVServiceProvider extends ServiceProvider
                         </div>
                         <div class="mt-12 border-t border-gray-700 pt-8">
                             <p class="flex justify-center items-center text-base text-gray-400 xl:text-center">
-                                <a href="https://phimsexsome.com/">© 2024</a>
-                                <a class="ml-1 align-middle text-lg" href="/"><span style="visibility: visible;" class="font-serif"><span class="text-zinc-50">Phimsex</span><span class="text-primary">Some</span></span>
+                                <a href="#">© 2024</a>
+                                <a class="ml-1 align-middle text-lg" href="/"><span style="visibility: visible;" class="font-serif"><span class="text-zinc-50">Tên</span><span class="text-primary">Website</span></span>
                                 </a>
                             </p>
                         </div>
