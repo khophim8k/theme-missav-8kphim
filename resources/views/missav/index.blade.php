@@ -61,7 +61,7 @@
             style="visibility: visible;">
             tìm kiếm bất kỳ<span class="text-primary"> phim sex yêu thích</span>
         </h1>
-        <div class="container relative mx-auto px-4 max-w-xl shadow-sm flex w-full rounded-md">
+        <div class="container relative mx-auto px-4 max-w-xl shadow-sm flex  rounded-md">
             <form class="relative flex items-stretch grow" id="form-search" action="/">
                 <input type="search" name="search" placeholder="Tìm kiếm phim"
                     class="block w-full rounded-none rounded-l-md p-3 border border-gray-300 transition ease-in-out duration-150 sm:leading-5 focus:outline-none focus:border-primary focus:ring focus:ring-nord11 focus:ring-opacity-50 placeholder-gray-400"
@@ -114,46 +114,3 @@
         </div>
     @endforeach
 @endsection
-
-@push('header')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-@endpush
-
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".recommend-carousel").owlCarousel({
-                items: 1,
-                center: false,
-                loop: true,
-                dots: false,
-                nav: true,
-                margin: 10,
-                stagePadding: 0,
-                stageOuterClass: 'owl-stage-outer',
-                responsive: {
-                    1280: {
-                        items: 4
-                    },
-                    1024: {
-                        items: 3
-                    },
-                    768: {
-                        items: 2
-                    },
-                },
-                scrollPerPage: true,
-                lazyLoad: true,
-                slideSpeed: 800,
-                paginationSpeed: 400,
-                stopOnHover: true,
-                autoplay: true,
-                navText: [
-                    `<span style="display: none" aria-label="Previous">‹</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute top-1/3 left-0 text-red-500 bg-gradient-to-r from-[#151111] w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" /></svg>`,
-                    `<span style="display: none" aria-label="Next">›</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute top-1/3 right-0 text-red-500 bg-gradient-to-l from-[#151111] w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" /></svg>`
-                ],
-            });
-        });
-    </script>
-@endpush

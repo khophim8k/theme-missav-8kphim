@@ -228,55 +228,16 @@ class MissAVServiceProvider extends ServiceProvider
                                             liên kết
                                         </h3>
                                         <ul class="mt-4 space-y-4">
+                                            
                                             <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
-                                                    Liên hệ
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="https://t.me/quinzz99" class="text-base text-gray-500 hover:text-primary">
                                                     Yêu cầu quảng cáo
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
-                                                    Sitemap
-                                                </a>
-                                            </li>
+                                           
                                         </ul>
                                     </div>
-                                    <div class="md:mt-0 mt-12 ">
-                                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                                            Xem thêm
-                                        </h3>
-                                        <ul class="mt-4 space-y-4">
-                                            <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary" rel="nofollow" target="_blank">
-                                                    Cam Sex Trực Tiếp
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
-                                                    Njav
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
-                                                    Supjav
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
-                                                    JerkDolls
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#" rel="sponsored nofollow noopener noreferrer" target="_target" class="text-base text-gray-500 hover:text-primary">
-                                                    ThePornDude
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
