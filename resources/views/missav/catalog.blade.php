@@ -1,16 +1,17 @@
 @extends('themes::missav.layout')
 
 @php
-$years = Cache::remember('all_years', \Backpack\Settings\app\Models\Setting::get('site_cache_ttl', 5 * 60), function () {
-    return \Kho8k\Core\Models\Movie::select('publish_year')
-        ->distinct()
-        ->pluck('publish_year')
-        ->sortDesc();
-});
+    $years = Cache::remember(
+        'all_years',
+        \Backpack\Settings\app\Models\Setting::get('site_cache_ttl', 5 * 60),
+        function () {
+            return \Kho8k\Core\Models\Movie::select('publish_year')->distinct()->pluck('publish_year')->sortDesc();
+        },
+    );
 @endphp
 
 @section('content')
-    <ul class="breadcrumb w-full px-2 py-2 mb-3 bg-[#151111] rounded-lg text-white">
+    <ul class="breadcrumb w-full px-2 py-2 mb-3  rounded-lg text-white">
         <li class="inline hover:text-yellow-400" itemprop="itemListElement" itemscope=""
             itemtype="http://schema.org/ListItem">
             <a itemprop="item" href="/" title="Xem phim">
@@ -34,7 +35,7 @@ $years = Cache::remember('all_years', \Backpack\Settings\app\Models\Setting::get
             <meta itemprop="position" content="2">
         </li>
     </ul>
-    <div class="text-[#ddd] mb-3">
+    <form action="/" method="get" id="form-search" class="text-[#ddd] mb-3">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-3">
             <div class="block-search">
                 <select name="filter[sort]" form="form-search"
@@ -46,21 +47,15 @@ $years = Cache::remember('all_years', \Backpack\Settings\app\Models\Setting::get
                     <option value="view" @if (isset(request('filter')['sort']) && request('filter')['sort'] == 'view') selected @endif>Lượt xem</option>
                 </select>
             </div>
-            <div class="block-search">
-                <select name="filter[type]" form="form-search"
-                    class="bg-black border border-black text-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-1">
-                    <option value="">Mọi định dạng</option>
-                    <option value="series" @if (isset(request('filter')['type']) && request('filter')['type'] == 'series') selected @endif>Phim bộ</option>
-                    <option value="single" @if (isset(request('filter')['type']) && request('filter')['type'] == 'single') selected @endif>Phim lẻ</option>
-                </select>
-            </div>
+
             <div class="block-search">
                 <select name="filter[category]" form="form-search"
                     class="bg-black border border-black text-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-1">
                     <option value="">Tất cả thể loại</option>
                     @foreach (\Kho8k\Core\Models\Category::fromCache()->all() as $item)
-                        <option value="{{ $item->id }}" @if ((isset(request('filter')['category']) && request('filter')['category'] == $item->id) ||
-                            (isset($category) && $category->id == $item->id)) selected @endif>
+                        <option value="{{ $item->id }}" @if (
+                            (isset(request('filter')['category']) && request('filter')['category'] == $item->id) ||
+                                (isset($category) && $category->id == $item->id)) selected @endif>
                             {{ $item->name }}</option>
                     @endforeach
                 </select>
@@ -70,8 +65,9 @@ $years = Cache::remember('all_years', \Backpack\Settings\app\Models\Setting::get
                     class="bg-black border border-black text-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-1">
                     <option value="">Tất cả quốc gia</option>
                     @foreach (\Kho8k\Core\Models\Region::fromCache()->all() as $item)
-                        <option value="{{ $item->id }}" @if ((isset(request('filter')['region']) && request('filter')['region'] == $item->id) ||
-                            (isset($region) && $region->id == $item->id)) selected @endif>
+                        <option value="{{ $item->id }}" @if (
+                            (isset(request('filter')['region']) && request('filter')['region'] == $item->id) ||
+                                (isset($region) && $region->id == $item->id)) selected @endif>
                             {{ $item->name }}</option>
                     @endforeach
                 </select>
@@ -88,21 +84,17 @@ $years = Cache::remember('all_years', \Backpack\Settings\app\Models\Setting::get
             </div>
             <div class="block-search grow">
                 <button type="submit" form="form-search"
-                    class="w-full bg-red-600 hover:bg-opacity-80 p-2 rounded-md flex items-center justify-center">
-                    <svg class="fill-current pointer-events-none text-white w-3 h-3" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20">
-                        <path
-                            d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
-                        </path>
-                    </svg>
+                    class="w-full bg-black hover:bg-opacity-80 rounded-md p-1 flex items-center justify-center">
+
+                    <span class="text-white ">Lọc</span>
                 </button>
             </div>
 
         </div>
-    </div>
+    </form>
 
-    <div class="section-heading flex bg-[#151111] rounded-lg p-0 mb-2">
-        <h1 class="inline p-1.5 bg-[red] rounded-l-lg h-text text-white">
+    <div class="section-heading flex rounded-lg p-0 mb-2">
+        <h1 class="inline p-1.5  rounded-l-lg h-text text-white">
             {{ $section_name ?? 'Danh Sách Phim' }}
         </h1>
     </div>
@@ -121,5 +113,5 @@ $years = Cache::remember('all_years', \Backpack\Settings\app\Models\Setting::get
         </div>
     @endif
 
-    {{ $data->appends(request()->all())->links("themes::missav.inc.pagination") }}
+    {{ $data->appends(request()->all())->links('themes::missav.inc.pagination') }}
 @endsection

@@ -65,7 +65,7 @@ class MissAVServiceProvider extends ServiceProvider
                         'label' => 'Danh sách mới cập nhật',
                         'type' => 'code',
                         'hint' => 'display_label|relation|find_by_field|value|limit|show_more_url',
-                        'value' => "Phim sex mới||is_copyright|0|8|/danh-sach/phim-moi\r\nJAV HD|categories|slug|jav-hd|12|/the-loai/jav-hd\r\nPhim sex vụng trộm|categories|slug|vung-trom|8|/the-loai/vung-trom\r\nPhim sex không che|categories|slug|av-khong-che|12|/the-loai/av-khong-che\r\nMỹ-Châu Âu|regions|slug|trung-quoc|8|/quoc-gia/chau-au",
+                        'value' => "Phim sex Hot||is_copyright|0|8|/danh-sach/phim-hot\r\nJAV HD|categories|slug|jav-hd|12|/the-loai/jav-hd\r\nPhim sex vụng trộm|categories|slug|vung-trom|8|/the-loai/vung-trom\r\nPhim sex không che|categories|slug|av-khong-che|12|/the-loai/av-khong-che\r\nMỹ-Châu Âu|regions|slug|trung-quoc|8|/quoc-gia/chau-au",
                         'attributes' => [
                             'rows' => 5
                         ],
@@ -145,7 +145,7 @@ class MissAVServiceProvider extends ServiceProvider
                                                 text-align: center;
                                                 margin: 5px;
                                             }
-                                            
+
                                             </style>`;
 
                         var targetBottomElement = document.querySelector(".h-content");
@@ -189,15 +189,15 @@ class MissAVServiceProvider extends ServiceProvider
                                         <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Video</h3>
                                         <ul class="mt-4 space-y-4">
                                             <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">JAV HD</a>
+                                                <a href="/the-loai/jav-hd" class="text-base text-gray-500 hover:text-primary">JAV HD</a>
                                             </li>
                                             <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="/the-loai/av-khong-che" class="text-base text-gray-500 hover:text-primary">
                                                     AV Không Che
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="/the-loai/vung-trom" class="text-base text-gray-500 hover:text-primary">
                                                     Vụng trộm
                                                 </a>
                                             </li>
@@ -207,15 +207,15 @@ class MissAVServiceProvider extends ServiceProvider
                                         <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Quốc Gia</h3>
                                         <ul class="mt-4 space-y-4">
                                             <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">Nhật Bản</a>
+                                                <a href="/quoc-gia/nhat-ban" class="text-base text-gray-500 hover:text-primary">Nhật Bản</a>
                                             </li>
                                             <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="/quoc-gia/chau-au" class="text-base text-gray-500 hover:text-primary">
                                                     Châu Âu
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="/quoc-gia/trung-quoc" class="text-base text-gray-500 hover:text-primary">
                                                     Trung Quốc
                                                 </a>
                                             </li>
@@ -228,16 +228,16 @@ class MissAVServiceProvider extends ServiceProvider
                                             liên kết
                                         </h3>
                                         <ul class="mt-4 space-y-4">
-                                            
+
                                             <li>
                                                 <a href="https://t.me/quinzz99" class="text-base text-gray-500 hover:text-primary">
                                                     Yêu cầu quảng cáo
                                                 </a>
                                             </li>
-                                           
+
                                         </ul>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
