@@ -86,7 +86,7 @@ class MissAVServiceProvider extends ServiceProvider
                         'name' => 'additional_css',
                         'label' => 'Additional CSS',
                         'type' => 'code',
-                        'value' => "<style>img.logoiframe {width: 15%;position: absolute;top: 2%;left: 3%;background-color: #00000010;z-index: 100;}</style>",
+                        'value' => "<style>img.logoiframe {width: 15%;heigh:7%;position: absolute;top: 2%;left: 3%;background-color: #00000010;z-index: 100;}</style>",
                         'tab' => 'Custom CSS'
                     ],
                     [
