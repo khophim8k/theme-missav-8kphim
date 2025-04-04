@@ -57,10 +57,7 @@
 @section('content')
 
     <div class="search-form flex flex-col justify-center content-center text-center">
-        <h1 class="text-3xl tracking-tight leading-10 font-serif text-zinc-50 sm:text-4xl sm:leading-none mb-8"
-            style="visibility: visible;">
-            tìm kiếm bất kỳ<span class="text-primary"> phim sex yêu thích</span>
-        </h1>
+        
         <div class="container relative mx-auto px-4 max-w-xl shadow-sm flex  rounded-md">
             <form class="relative flex items-stretch grow" id="form-search" action="/">
                 <input type="search" name="search" placeholder="Tìm kiếm phim"
@@ -86,14 +83,7 @@
             {!! get_theme_option('ads_header') !!}
         @endif
     </div>
-    <div class="flex-1 min-w-0 pt-10 pd-6 items-center justify-between"><h2 class="h-text text-white uppercase text-2xl mb-2">đề xuất cho bạn</h2></div>
-    @if (count($recommendations))
-        <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
-            @foreach ($recommendations as $movie)
-                @include('themes::missav.inc.movie_card_recommend')
-            @endforeach
-        </div>
-    @endif
+   
     @foreach ($data as $key_section => $item)
         <div class="mb-5 ">
             <div class="flex-1 min-w-0 pd-4 items-center justify-between lg:pt-6 md:pt-6 sm:pt-6 se:pt-4 gl:pt-4">
