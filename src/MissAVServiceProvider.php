@@ -107,20 +107,24 @@ class MissAVServiceProvider extends ServiceProvider
                         'name' => 'additional_body_js',
                         'label' => 'Body JS',
                         'type' => 'code',
-                        'value' => <<<HTML
+                        'value' => <<<EOT
                         <script>
                             document.addEventListener("DOMContentLoaded", function() {
-                                setTimeout(function() {
-                                    var playerDiv = document.getElementById("player-wrapper");
+                                // var logo = '/storage/images/logovl.png';
+                                var logo = '';
+                                if (logo && logo.trim() !== '') {
+                                    setTimeout(function() {
+                                        var playerDiv = document.getElementById("player-wrapper");
 
-                                    if (playerDiv) {
-                                        var imgElement = document.createElement("img");
-                                        imgElement.src = "/storage/images/logovl.png";  // Đường dẫn hình ảnh
-                                        imgElement.alt = "logo";  // Thuộc tính alt của ảnh
-                                        imgElement.className = "logoiframe";  // Thêm class 'logoiframe'
-                                        playerDiv.appendChild(imgElement);
-                                    }
-                                }, 500); // Chờ 1 giây sau khi script trước đã thực thi
+                                        if (playerDiv) {
+                                            var imgElement = document.createElement("img");
+                                            imgElement.src = "/storage/images/logovl.png";  // Đường dẫn hình ảnh
+                                            imgElement.alt = "logo";  // Thuộc tính alt của ảnh
+                                            imgElement.className = "logoiframe";  // Thêm class 'logoiframe'
+                                            playerDiv.appendChild(imgElement);
+                                        }
+                                    }, 500); // Chờ 1 giây sau khi script trước đã thực thi
+                                }
                             });
                         </script>
                         <script>
@@ -150,6 +154,7 @@ class MissAVServiceProvider extends ServiceProvider
 
                         var targetBottomElement = document.querySelector(".h-content");
                         var targetTopElement = document.querySelector(".h-content");
+                        
                         if (targetBottomElement) {
                             targetBottomElement.insertAdjacentHTML("beforeend", catfishDiv);
                         }
@@ -157,7 +162,7 @@ class MissAVServiceProvider extends ServiceProvider
                             targetTopElement.insertAdjacentHTML("afterbegin", headerDiv);
                         }
                         </script>
-                        HTML,
+                        EOT,
                         'tab' => 'Custom JS'
                     ],
                     [
