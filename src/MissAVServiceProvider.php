@@ -235,7 +235,7 @@ class MissAVServiceProvider extends ServiceProvider
                                         <ul class="mt-4 space-y-4">
 
                                             <li>
-                                                <a href="https://t.me/quinzz99" class="text-base text-gray-500 hover:text-primary">
+                                                <a href="mailto:adsputin4k@gmail.com" class="text-base text-gray-500 hover:text-primary">
                                                     Yêu cầu quảng cáo
                                                 </a>
                                             </li>
