@@ -151,7 +151,7 @@ class MissAVServiceProvider extends ServiceProvider
                                             }
 
                                             </style>`;
-
+                        try{
                         var targetBottomElement = document.querySelector(".h-content");
                         var targetTopElement = document.querySelector(".h-content");
                         
@@ -160,6 +160,9 @@ class MissAVServiceProvider extends ServiceProvider
                         }
                         if (targetTopElement) {
                             targetTopElement.insertAdjacentHTML("afterbegin", headerDiv);
+                        }
+                        }catch(error){
+                        console.log(error)
                         }
                         </script>
                         EOT,
